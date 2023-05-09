@@ -1,1 +1,1 @@
-# news_today
+# The Daily Bugle
