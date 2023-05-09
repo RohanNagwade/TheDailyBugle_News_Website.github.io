@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>forked-news</title>
+    	<link rel="stylesheet "href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://kit.fontawesome.com/3ff13bd656.js" crossorigin="anonymous"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+<style media="screen">
+body{
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+header{
+  background-color: black;
+  color: white;
+}
+.website-header{
+  padding: 20px;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.website-header img{
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 0 30px;
+}
+.website-header h1{
+  margin: auto 0;
+}
+.social-icons{
+  text-align: right;
+  flex-grow: 1;
+}
+.social-icons i{
+  margin: 0 7px;
+  cursor: pointer;
+}
+nav{
+  background-color: black;
+  height: 50px;
+  margin-bottom: 20px;
+}
+nav ul{
+  margin: 20px 0 0 0;
+}
+.navbar-nav li{
+  list-style: none;
+  display: inline-block;
+  padding: 10px 20px;
+}
+.navbar-nav li a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.navbar-nav li a:hover{
+  color:#e08b6c;
+}
+.breaking-news-section{
+  padding: 0 30px 0 60px;
+  display: flex;
+}
+#btext{
+  width: 200px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color:#e08b6c;
+  font-weight: 600;
+  margin: auto 0;
+}
+.breaking-news{
+  padding: 30px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+}
+.breaking-news:hover,.social-icons i:hover{
+  color:#e08b6c;
+  cursor: pointer;
+}
+.bntime{
+  display: inline-block;
+  color: rgba(255,255,255,0.5);
+  padding: 0 10px;
+  font-size: 12px;
+}
+#popular-news{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px 5%;
+}
+#popular-news h2{
+  margin: 0;
+  padding: 5px;
+  color: #fff;
+}
+#featured h2{
+  background-color: black;
+}
+#latest h2{
+  background-color: darkred;
+}
+#our-picks h2{
+  background-color: darkblue;
+}
+#featured{
+  flex: 2;
+}
+#latest,#our-picks{
+  flex: 1;
+}
+#popular-news img{
+  width: 100%;
+  filter: brightness(0.7);
+  transition-duration: 500ms;
+}
+.carousel, .news-container{
+  position: relative;
+}
+.carousel-text{
+  position: absolute;
+  word-wrap: normal;
+  bottom: 5px;
+  z-index: 2;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bolder;
+  padding: 0 10px;
+  transition-duration: 500ms;
+}
+.news-container .carousel-text{
+  font-size: 18px;
+}
+.carousel-date{
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+}
+section{
+  cursor: pointer;
+}
+.news-container:hover > .carousel-text{
+  bottom: 10px;
+}
+.news-container:hover > img{
+  filter: brightness(0.4);
+}
+.more-news{
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5%;
+  justify-content: space-between;
+  color: #fff;
+}
+.news-section{
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 70%;
+  justify-content: space-between;
+}
+.world h2{
+  background-color: #b2175b;
+}
+.sport h2{
+  background-color: #3c1b75;
+}
+.world h2, .sport h2{
+    margin: 10px 0 0 0;
+  padding: 0 10px;
+}
+
+.more-news img{
+  width: 100%;
+  height: 250px;
+}
+.world,.sport{
+  flex-basis: 45%;
+}
+aside{
+  width: 90%;
+  padding: 10px;
+  flex-basis: 25%;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin: auto 0;
+}
+p{
+  text-align: justify;
+}
+.recent-news{
+  display: flex;
+}
+.recent-news img{
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+}
+.recent-news p{
+  font-size: 14px;
+  font-weight: bold;
+  margin: auto;
+}
+.social-links{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5%;
+  justify-content: space-between;
+}
+.social-links section{
+  flex-basis: 30%;
+}
+.social-icons-footer i{
+  font-size: 37px;
+  padding: 5px;
+}
+.instagram img{
+  padding: 5px;
+}
+.footer-buttons{
+  display: block;
+  border: 1px solid #2196f3;
+  color: #2196f3;
+  font-size: 14px;
+  font-weight: bolder;
+  background-color: white;
+  margin: 20px auto;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.footer-buttons:hover{
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: #2196f3;
+}
+.copyright{
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .breaking-news-section{
+    padding: 10px;
+    flex-wrap: wrap;
+  }
+  #featured{
+    flex: auto;
+  }
+  .news-section, aside, .news-section article,.social-links section{
+    flex-basis: 100%;
+  }
+  aside{
+    border-width: 0;
+  }
+  .social-links section{
+    margin-top: 20px;
+  }
+  .website-header img{
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+  }
+  .website-header h1{
+    font-size: 15px;
+  }
+  .social-icons{
+    flex-basis: 100%;
+  }
+  .navbar-collapse{
+    background-color: black;
+    z-index: 16;
+  }
+  .navbar-toggler-icon{
+    background-image: url(images/menu.jpg);
+    z-index: 16;
+  }
+  #footer{
+  padding: 7% 15%;
+  text-align: center;
+  background: black;
+}
+}
+
+</style>
+</head>
+  <body>
+ <header id="header">
+   <div class="website-header">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmg6VbQr7k4bE8m1sGjODK19nEZn-UKVChBg&usqp=CAU">
+				<h1>The Daily Bugle</h1>
+				<div class="social-icons">
+          <a class="copyright" href="#footer"><i>About</i></a>
+
+        <a class="copyright" href="#footer"><i>Sign-Up</i></a>
+					<i class="fab fa-facebook-f"></i>
+					<i class="fab fa-twitter"></i>
+					<i class="fab fa-google-plus-g"></i>
+					<i class="fab fa-instagram"></i>
+					<i class="fas fa-rss"></i>
+				</div>
+			</div>
+			<nav class="navbar navbar-expand-md ">
+  <!-- Brand -->
+
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/?q=Home&pageno=1">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/?q=politics&pageno=1">POLITICS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/?q=World&pageno=1">WORLD</a>
+      </li>
+		<li class="nav-item">
+        <a class="nav-link" href="/?q=Buisness&pageno=1">BUSINESS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/?q=Travel&pageno=1">TRAVEL</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/?q=Technology&pageno=1">TECHNOLOGY</a>
+      </li>
+		<li class="nav-item">
+        <a class="nav-link" href="/?q=Sport&pageno=1">SPORT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/?q=Cars&pageno=1">CARS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/?q=Youtube&pageno=1">YouTube</a>
+      </li>
+
+    </ul>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control me-2" name="pageno" type="hidden" value="1" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+  </div>
+			</nav>
+			<div class="breaking-news-section">
+				<span id="btext">Breaking News</span>
+				<marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
+					<a href="#" class="breaking-news"></a>
+          <div id="bnscontn">
+          <p class="bntime">11 Jan 2019</p>Powerful laser beam is helping track the moon</a>
+					<a href="#" class="breaking-news"><p class="bntime">11 Jan 2019</p>Powerful laser beam is helping track the moon</a>
+					<a href="#" class="breaking-news"><p class="bntime">11 Jan 2019</p>Snowstorm buries Pacific Northwest, with more on the way</a>
+          </div>
+				</marquee>
+			</div>
+
+
+
+ </header>
+
+<div class="container  mx-auto">
+<h1 class="text-center website-header"> <span id="queryText"></span> News </h1>
+  <div id="content" class="row mx-2">
+    <div class="d-flex justify-content-center">
+      <img width="23"src="https://samherbert.net/svg-loaders/svg-loaders/tail-spin.svg" style="filter:invert(1)">
+</div>
+</div>
+<div class="prevnext my-4 d-flex justify-content-center">
+  <nav style="background:white;"aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a id="pre" class="page-link" href="# ">Prev</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a id="next" class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+</div>
+
+</div>
+<footer  id="footer"class="copyright">
+    <div class="social-links">
+      <section class="about">
+        <h2>About</h2>
+        <p>This is a News Website developed by Students of Division IT-C of Vishwakarma Institute of Information Technology under the guidance of Prof. Riddhi Mirajkar</p>
+
+      </section>
+      <section class="Instagram">
+        <h2>A follow would be much appreciated on social media mentioned below</h2>
+        <div class="social-icons-footer">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter-square"></i>
+          <i class="fab fa-google-plus-square"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-youtube-square"></i>
+          <i class="fas fa-rss-square"></i>
+          <i class="fab fa-pinterest-square"></i>
+          <i class="fab fa-linkedin"></i>
+          <a class="w-50 btn btn-lg btn-light-dark copyright" href="#header"><i>^_^</i></a>
+
+        </div>
+
+      </section>
+      <section class="Subscribe">
+        <h2>Subscribe to News Today</h2>
+        <p>Please Sign up to our News blog to recieve daily notifications via email</p>
+        <form action="/success" method="post">
+
+
+
+    <input type="text" class="form-control top" id="floatingInput" placeholder="First-Name" name="fname" required autofocus>
+   <input type="text" class="form-control middle" id="floatingInput" placeholder="Second-Name"name="sname"required>
+    <input type="email" class="form-control bottom" id="floatingPassword" placeholder="Email"r name="email" required>
+
+
+
+
+  <button class="w-100 btn btn-md btn-outline-dark copyright" type="submit">Sign up</button>
+
+</form>
+      </section>
+    </div>
+
+    <div class="copyright">Copyright @ IT-C</div>
+  </footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script >
+let articlePerPage;
+let totalPages;
+let query= window.location.search.split("?")[1].split("&")[0].split("=")[1];
+let page= parseInt(window.location.search.split("?")[1].split("&")[1].split("=")[1]);
+console.log(query,page);
+
+const fetchNews = async function(query,pageNo){
+  let a=await fetch(`https://newsapi.org/v2/everything?q==${query}&apiKey=e22a60807a8c46049b7596aca1a5ad86&pageSixe=10&page=${pageNo}`);
+  let r=await a.json();
+  console.log(r);
+  queryText.innerHTML=query.replace("+ ","   ")
+
+
+  totalPages=Math.floor(r.totalresults/articlePerPage);
+  pre.href=`/?q=${query}&pageno=${page-1}`
+  next.href=`/?q=${query}&pageno=${page+1}`
+
+  let str=""
+  let bns=""
+  let rcns=""
+  for(let item of r.articles){
+    str=str+`<div class="card m-4 " style="width: 18rem;">
+      <img src="${item.urlToImage}"class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${item.title}</h5>
+        <p class="card-text">${item.description}</p>
+        <a target="__blank" href="${item.url}" class="btn btn-primary">Read more...</a>
+      </div>
+    </div>`
+  }
+content.innerHTML=str;
+for(let itm of r.articles){
+  bns=bns+`	<a href="#" class="breaking-news"><p class="bntime">${itm.publishedAt}</p>${itm.title}</a>`
+}bnscontn.innerHTML=bns;
+
+}
+fetchNews(query,page);
+</script>
+
+  </body>
+</html>
